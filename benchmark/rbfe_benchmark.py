@@ -18,7 +18,7 @@ def get_settings():
     """
     settings = RelativeHybridTopologyProtocol.default_settings()
     settings.simulation_settings.equilibration_length = 100 * unit.picosecond
-    settings.simulation_settings.production_length = 200 * unit.picosecond
+    settings.simulation_settings.production_length = 500 * unit.picosecond
     settings.simulation_settings.time_per_iteration = 2.5 * unit.picosecond
     settings.simulation_settings.real_time_analysis_interval = 100 * unit.picosecond
     settings.output_settings.checkpoint_interval = 100 * unit.picosecond
@@ -70,8 +70,8 @@ def run_md(dag, protocol):
         workdir = pathlib.Path(tmpdir)
         dagres = gufe.protocols.execute_DAG(
             dag,
-            shared_basedir=pathlib.Path('.'),
-            scratch_basedir=pathlib.Path('.'),
+            shared_basedir=workdir,
+            scratch_basedir=workdir,
             keep_shared=True,
             raise_error=True,
             n_retries=0,
