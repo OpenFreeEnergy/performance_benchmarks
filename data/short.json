@@ -1,0 +1,10 @@
+{
+    "tyk2": {
+        "protein": "tyk2/protein.pdb",
+        "edge": "tyk2/tyk2_edge.json"
+    },
+    "pde2": {
+        "edge": "pde2/pde2_edge.json",
+        "protein": "pde2/protein.pdb"
+    }
+}

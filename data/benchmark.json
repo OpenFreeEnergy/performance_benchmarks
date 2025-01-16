@@ -1,0 +1,43 @@
+{
+    "tyk2": {
+        "protein": "tyk2/protein.pdb",
+        "edge": "tyk2/tyk2_edge.json"
+    },
+    "p38": {
+        "edge": "p38/p38_edge.json",
+        "protein": "p38/protein.pdb"
+    },
+    "shp2": {
+        "protein": "shp2/protein.pdb",
+        "edge": "shp2/shp2_edge.json"
+    },
+    "hif2a": {
+        "edge": "hif2a/hif2a_edge.json",
+        "protein": "hif2a/protein.pdb"
+    },
+    "pfkfb3": {
+        "protein": "pfkfb3/protein.pdb",
+        "edge": "pfkfb3/pfkfb3_edge.json",
+        "cofactors": "pfkfb3/cofactor.sdf"
+    },
+    "cmet": {
+        "protein": "cmet/protein.pdb",
+        "edge": "cmet/cmet_edge.json"
+    },
+    "mcl1": {
+        "protein": "mcl1/protein.pdb",
+        "edge": "mcl1/mcl1_edge.json"
+    },
+    "ptp1b": {
+        "protein": "ptp1b/protein.pdb",
+        "edge": "ptp1b/ptp1b_edge.json"
+    },
+    "cdk2": {
+        "edge": "cdk2/cdk2_edge.json",
+        "protein": "cdk2/protein.pdb"
+    },
+    "pde2": {
+        "edge": "pde2/pde2_edge.json",
+        "protein": "pde2/protein.pdb"
+    }
+}
