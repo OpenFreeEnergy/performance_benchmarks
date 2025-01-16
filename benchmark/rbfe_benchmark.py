@@ -25,6 +25,7 @@ def get_settings():
     settings.solvation_settings.box_shape = 'dodecahedron'
     settings.forcefield_settings.nonbonded_cutoff = 0.9 * unit.nanometer
     settings.protocol_repeats = 1
+    settings.engine_settings.compute_platform = 'cuda'
     return settings
 
 
