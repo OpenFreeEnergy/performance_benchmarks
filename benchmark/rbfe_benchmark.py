@@ -22,6 +22,7 @@ def get_settings():
     settings.simulation_settings.time_per_iteration = 2.5 * unit.picosecond
     settings.simulation_settings.real_time_analysis_interval = 100 * unit.picosecond
     settings.output_settings.checkpoint_interval = 100 * unit.picosecond
+    settings.output_settings.positions_write_frequency = 100 * unit.picosecond
     settings.solvation_settings.box_shape = 'dodecahedron'
     settings.forcefield_settings.nonbonded_cutoff = 0.9 * unit.nanometer
     settings.protocol_repeats = 1
@@ -71,8 +72,8 @@ def run_md(dag, protocol):
         workdir = pathlib.Path(tmpdir)
         dagres = gufe.protocols.execute_DAG(
             dag,
-            shared_basedir=workdir,
-            scratch_basedir=workdir,
+            shared_basedir=pathlib.Path('.'),
+            scratch_basedir=pathlib.Path('.'),
             keep_shared=True,
             raise_error=True,
             n_retries=0,
