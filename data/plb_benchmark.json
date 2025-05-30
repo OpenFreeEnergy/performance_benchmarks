@@ -1,0 +1,126 @@
+{
+    "tyk2": {
+        "protein": "plb_v0.3/tyk2/protein.pdb",
+        "edge": "plb_v0.3/tyk2/tyk2_edge.json",
+	"atoms": {
+	    "complex": 38501,
+	    "solvent": 1755
+	},
+	"waters": {
+	    "complex": 10066,
+	    "solvent": 577
+        }
+    },
+    "p38": {
+        "edge": "plb_v0.3/p38/p38_edge.json",
+        "protein": "plb_v0.3/p38/protein.pdb",
+        "atoms": {      
+            "complex": 48992,
+            "solvent": 1850
+        },
+        "waters": {
+            "complex": 10088,
+            "solvent": 604
+        }
+    },
+    "shp2": {
+        "protein": "plb_v0.3/shp2/protein.pdb",
+        "edge": "plb_v0.3/shp2/shp2_edge.json",
+        "atoms": {
+            "complex": 83520,
+            "solvent": 1857
+        },
+        "waters": {
+            "complex": 10143,
+            "solvent": 608
+        }
+
+    },
+    "hif2a": {
+        "edge": "plb_v0.3/hif2a/hif2a_edge.json",
+        "protein": "plb_v0.3/hif2a/protein.pdb",
+        "atoms": {
+            "complex": 47071,
+            "solvent": 1765
+        },
+        "waters": {
+            "complex": 10082,
+            "solvent": 579
+        }
+
+    },
+    "pfkfb3": {
+        "protein": "plb_v0.3/pfkfb3/protein.pdb",
+        "edge": "plb_v0.3/pfkfb3/pfkfb3_edge.json",
+        "cofactors": "plb_v0.3/pfkfb3/cofactor.sdf",
+        "atoms": {
+            "complex": 66738,
+            "solvent": 2346
+        },
+        "waters": {
+            "complex": 10130,
+            "solvent": 764
+        }
+    },
+    "cmet": {
+        "protein": "plb_v0.3/cmet/protein.pdb",
+        "edge": "plb_v0.3/cmet/cmet_edge.json",
+        "atoms": {
+            "complex": 33893,
+            "solvent": 1732
+        },
+        "waters": {
+            "complex": 9794,
+            "solvent": 565
+        }
+    },
+    "mcl1": {
+        "protein": "plb_v0.3/mcl1/protein.pdb",
+        "edge": "plb_v0.3/mcl1/mcl1_edge.json",
+        "atoms": {
+            "complex": 16811,
+            "solvent": 1742
+        },
+        "waters": {
+            "complex": 4792,
+            "solvent": 569
+        }
+
+    },
+    "ptp1b": {
+        "protein": "plb_v0.3/ptp1b/protein.pdb",
+        "edge": "plb_v0.3/ptp1b/ptp1b_edge.json",
+        "atoms": {
+            "complex": 38850,
+            "solvent": 2894
+        },
+        "waters": {
+            "complex": 10074,
+            "solvent": 950
+        }
+    },
+    "cdk2": {
+        "edge": "plb_v0.3/cdk2/cdk2_edge.json",
+        "protein": "plb_v0.3/cdk2/protein.pdb",
+	"atoms": {
+	    "complex": 72515,
+	    "solvent": 1755
+	},
+	"waters": {
+	    "complex": 10117,
+	    "solvent": 571
+         }
+    },
+    "pde2": {
+        "edge": "plb_v0.3/pde2/pde2_edge.json",
+        "protein": "plb_v0.3/pde2/protein.pdb",
+        "atoms": {
+            "complex": 55241,
+            "solvent": 1732
+        },
+        "waters": {
+            "complex": 10095,
+            "solvent": 564
+        }
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "tyk2": {
+        "protein": "plb_v0.3/tyk2/protein.pdb",
+        "edge": "plb_v0.3/tyk2/tyk2_edge.json",
+        "atoms": {
+            "complex": 38501,
+            "solvent": 1755
+        },
+        "waters": {
+            "complex": 10066,
+            "solvent": 577
+        }
+    }
+
+}

@@ -1,8 +1,0 @@
-{
-    "tyk2": {
-        "protein": "tyk2/protein.pdb",
-        "edge": "tyk2/tyk2_edge.json"
-        "atoms": 38501,
-        "waters": 10066
-    }
-}
