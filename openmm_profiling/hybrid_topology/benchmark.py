@@ -1,5 +1,5 @@
 import openmm
-from openmm import Platform
+from openmm import Platform, OpenMMException
 from openmm import unit
 from openff.units import unit as offunit
 from openff.units.openmm import to_openmm
@@ -36,7 +36,7 @@ def adjust_system(
 def benchmark_md(
     system,
     positions,
-    nsteps=1200000,
+    nsteps=2400000,
     timestep=4.0*unit.femtoseconds,
     platform=CUDA_PLATFORM,
     tag="alchemical",
@@ -67,7 +67,7 @@ def benchmark_md(
 def benchmark_multistate(
     system,
     positions,
-    nsteps=1200000,
+    nsteps=2400000,
     timestep=4.0*unit.femtoseconds,
     windows=12,
     steps_per_exchange=625,
@@ -135,6 +135,86 @@ def benchmark_multistate(
     return t1-t0
 
 
+def benchmark_manual_multistate(
+    system,
+    positions,
+    nsteps=2400000,
+    timestep=4.0*unit.femtoseconds,
+    windows=12,
+    steps_per_exchange=625,
+    checkpoint_interval=10000,
+    position_interval=0,
+    velocity_interval=0,
+    online_analysis_interval=40,
+    online_analysis_minimum_iterations=0,
+    platform=CUDA_PLATFORM,
+    max_retries=5,
+):
+    lambda_schedule = lambdaprotocol.LambdaProtocol(
+        functions='default',
+        windows=windows,
+    )
+
+    integrator = openmm.LangevinMiddleIntegrator(
+        298.15 * unit.kelvin,
+        1.0 / unit.picosecond,
+        timestep
+    )
+    integrator.setConstraintTolerance(1e-6)
+    context = openmm.Context(system, integrator, platform)
+
+    states = []
+
+    print("manual multistate: minimizing")
+    for i in range(windows):
+        print(f"minimizing: {i}")
+        context.setPositions(positions)
+        lambda_value = lambda_schedule.lambda_schedule[i]
+        for key in lambda_schedule.functions:
+                value = lambda_schedule.functions[key](lambda_value)
+                context.setParameter(key, value)
+        openmm.LocalEnergyMinimizer.minimize(context, maxIterations=10000)
+        new_state = context.getState(getPositions=True, getVelocities=False)
+        states.append(new_state)
+
+
+    t0 = time.time()
+
+    n_iterations = int(int(nsteps/windows)/steps_per_exchange)
+    print(n_iterations)
+    for it in range(n_iterations):
+        for replica in range(windows):
+            print(f"manual multistate: iteration {it} replica {replica}")
+            context.setState(states[replica])
+
+            if it == 0:
+                context.setVelocitiesToTemperature(298.15)
+
+            lambda_value = lambda_schedule.lambda_schedule[replica]
+            for key in lambda_schedule.functions:
+                value = lambda_schedule.functions[key](lambda_value)
+                context.setParameter(key, value)
+
+            for attempt in range(max_retries):
+                try:
+                    integrator.step(steps_per_exchange)
+                    new_state = context.getState(getPositions=True, getVelocities=True)
+                    states[replica] = new_state
+                except OpenMMException:
+                    if attempt == max_retries - 1:
+                        raise ValueError(f'NaNed at iteration {it} replica {replica}')
+                    else:
+                        print("NaN detected, randomizing velocities and trying again")
+                        context.setState(states[replica])
+                        context.setVelocitiesToTemperature(298.15)
+                    continue
+                else:
+                    break
+    t1 = time.time()
+
+    return t1-t0
+
+
 def deserialize(xml, npz):
     """
     Deserialize an OpenMM system in xml format and positions stored in npz.
@@ -149,6 +229,7 @@ def deserialize(xml, npz):
 
 md_results = {}
 multi_results = {}
+multi_results_new = {}
 
 for system_type in ['hybrid', 'standard']:
     system, positions = deserialize(
@@ -158,11 +239,12 @@ for system_type in ['hybrid', 'standard']:
 
     adjust_system(system)
 
-    md_results[system_type] = benchmark_md(system, positions, tag=system_type)
-    print(f"{system_type} MD simulation time: ", md_results[system_type])
+    # md_results[system_type] = benchmark_md(system, positions, tag=system_type)
+    # print(f"{system_type} MD simulation time: ", md_results[system_type])
 
     if system_type == 'hybrid':
-        multi_results[system_type] = benchmark_multistate(system, positions)
+        # multi_results[system_type] = benchmark_multistate(system, positions)
+        print(benchmark_manual_multistate(system, positions))
 
 
 system_speedup = md_results['standard'] / md_results['hybrid']

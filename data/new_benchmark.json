@@ -83,9 +83,9 @@
             "solvent": 573
          }
     },
-    "mcl1": {
-        "edge": "ross_2023/jacs/mcl1/mcl1_edge.json",
-        "protein": "ross_2023/jacs/mcl1/protein.pdb",
+    "tyk2": {
+        "edge": "ross_2023/jacs/tyk2/tyk2_edge.json",
+        "protein": "ross_2023/jacs/tyk2/protein.pdb",
         "atoms": {
             "complex": 36843,
             "solvent": 1750
