@@ -3,6 +3,7 @@ import openfe
 from openfe.protocols.openmm_rfe import RelativeHybridTopologyProtocol
 from openmm import XmlSerializer
 from openff.units.openmm import from_openmm
+from openff.units import unit
 import numpy as np
 import bz2
 
@@ -39,8 +40,11 @@ solvent = openfe.SolventComponent()
 sysA = openfe.ChemicalSystem({'ligand': mapping.componentA, 'protein': protein, 'solvent': solvent})
 sysB = openfe.ChemicalSystem({'ligand': mapping.componentB, 'protein': protein, 'solvent': solvent})
 
-
-protocol = RelativeHybridTopologyProtocol(settings=RelativeHybridTopologyProtocol.default_settings())
+settings = RelativeHybridTopologyProtocol.default_settings()
+settings.solvation_settings.box_shape = 'dodecahedron'
+settings.forcefield_settings.nonbonded_cutoff = 0.9 * unit.nanometer
+settings.solvation_settings.solvent_padding = 1.5 * unit.nanometer
+protocol = RelativeHybridTopologyProtocol(settings=settings)
 
 dag = protocol.create(stateA=sysA, stateB=sysB, mapping=mapping)
 dag_unit = list(dag.protocol_units)[0]

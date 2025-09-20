@@ -12,7 +12,7 @@ import bz2
 import time
 
 
-CUDA_PLATFORM = Platform.getPlatformByName('CUDA')
+CUDA_PLATFORM = Platform.getPlatformByName("CUDA")
 
 
 class DummyFactory:
@@ -21,9 +21,7 @@ class DummyFactory:
         self.hybrid_positions = positions
 
 
-def adjust_system(
-    system
-):
+def adjust_system(system):
     """
     Adjust the OpenMM system properties.
     """
@@ -37,7 +35,7 @@ def benchmark_md(
     system,
     positions,
     nsteps=2400000,
-    timestep=4.0*unit.femtoseconds,
+    timestep=4.0 * unit.femtoseconds,
     platform=CUDA_PLATFORM,
     tag="alchemical",
 ):
@@ -46,16 +44,14 @@ def benchmark_md(
     MD simulation using LangevinMiddleIntegrator.
     """
     integrator = openmm.LangevinMiddleIntegrator(
-        298.15 * unit.kelvin,
-        1.0 / unit.picosecond,
-        timestep
+        298.15 * unit.kelvin, 1.0 / unit.picosecond, timestep
     )
     integrator.setConstraintTolerance(1e-6)
     context = openmm.Context(system, integrator, platform)
     context.setPositions(positions)
 
     openmm.LocalEnergyMinimizer.minimize(context)
-    
+
     print(f"running {tag} system")
     t0 = time.time()
     integrator.step(nsteps)
@@ -68,7 +64,7 @@ def benchmark_multistate(
     system,
     positions,
     nsteps=2400000,
-    timestep=4.0*unit.femtoseconds,
+    timestep=4.0 * unit.femtoseconds,
     windows=12,
     steps_per_exchange=625,
     checkpoint_interval=10000,
@@ -79,14 +75,14 @@ def benchmark_multistate(
     platform=CUDA_PLATFORM,
 ):
     lambdas = lambdaprotocol.LambdaProtocol(
-        functions='default',
+        functions="default",
         windows=windows,
     )
 
     reporter = openmmtools.multistate.MultiStateReporter(
-        storage='simulation.nc',
+        storage="simulation.nc",
         checkpoint_interval=checkpoint_interval,
-        checkpoint_storage='checkpoint.nc',
+        checkpoint_storage="checkpoint.nc",
         position_interval=position_interval,
         velocity_interval=velocity_interval,
     )
@@ -112,7 +108,7 @@ def benchmark_multistate(
         lambda_protocol=lambdas,
         temperature=298.15 * unit.kelvin,
         endstates=False,
-        minimization_platform=platform.getName()
+        minimization_platform=platform.getName(),
     )
 
     sampler.energy_context_cache = openmmtools.cache.ContextCache(
@@ -129,17 +125,78 @@ def benchmark_multistate(
 
     sampler.minimize(max_iterations=1000)
     t0 = time.time()
-    sampler.extend(int(int(nsteps/windows)/steps_per_exchange))
+    sampler.extend(int(int(nsteps / windows) / steps_per_exchange))
     t1 = time.time()
 
-    return t1-t0
+    return t1 - t0
+
+
+def _get_reduced_potentials(context, states, index, temperature=298.15 * unit.kelvin, pressure=1 * unit.bar):
+
+    reduced_potentials = np.zeros(len(states))
+
+    # some constants
+    beta = 1.0 / (unit.BOLTZMANN_CONSTANT_kB * temperature)
+
+    # Loop through all states and update positions
+    for i, state in enumerate(states):
+        positions = state.getPositions()
+        box_vecs = state.getPeriodicBoxVectors()
+        context.setPositions(positions)
+        context.setPeriodicBoxVectors(*box_vecs)
+        new_state = context.getState(energy=True)
+
+        potential = new_state.getPotentialEnergy() / unit.AVOGADRO_CONSTANT_NA
+
+        if pressure is not None:
+            potential += pressure * new_state.getPeriodicBoxVolume()
+
+        reduced_potentials[i] = potential * beta
+
+    # Be careful and update the positions back to their initial values
+    init_pos = states[index].getPositions()
+    init_vecs = states[index].getPeriodicBoxVectors()
+    context.setPositions(init_pos)
+    context.setPeriodicBoxVectors(*box_vecs)
+
+    return reduced_potentials
+
+
+def _get_reduced_potentials2(context, lambda_schedule, index, temperature=298.15 * unit.kelvin, pressure=1 * unit.bar):
+
+    reduced_potentials = np.zeros(len(lambda_schedule.lambda_schedule))
+
+    # some constants
+    beta = 1.0 / (unit.BOLTZMANN_CONSTANT_kB * temperature)
+
+    # Loop through all lambda states and update parameters
+    for i, l in enumerate(lambda_schedule.lambda_schedule):
+        for key in lambda_schedule.functions:
+            value = lambda_schedule.functions[key](l)
+            context.setParameter(key, value)
+
+        state = context.getState(energy=True)
+        potential = state.getPotentialEnergy() / unit.AVOGADRO_CONSTANT_NA
+
+        if pressure is not None:
+            potential += pressure * state.getPeriodicBoxVolume()
+
+        reduced_potentials[i] = potential * beta
+
+    # Set context parameters back to their initial values
+    l = lambda_schedule.lambda_schedule[index]
+    for key in lambda_schedule.functions:
+        value = lambda_schedule.functions[key](l)
+        context.setParameter(key, value)
+
+    return reduced_potentials
 
 
 def benchmark_manual_multistate(
     system,
     positions,
     nsteps=2400000,
-    timestep=4.0*unit.femtoseconds,
+    timestep=4.0 * unit.femtoseconds,
     windows=12,
     steps_per_exchange=625,
     checkpoint_interval=10000,
@@ -151,87 +208,98 @@ def benchmark_manual_multistate(
     max_retries=5,
 ):
     lambda_schedule = lambdaprotocol.LambdaProtocol(
-        functions='default',
+        functions="default",
         windows=windows,
     )
 
-    integrator = openmm.LangevinMiddleIntegrator(
-        298.15 * unit.kelvin,
-        1.0 / unit.picosecond,
-        timestep
-    )
-    integrator.setConstraintTolerance(1e-6)
-    context = openmm.Context(system, integrator, platform)
-
     states = []
+    contexts = []
+    integrators = []
 
     print("manual multistate: minimizing")
     for i in range(windows):
         print(f"minimizing: {i}")
+        integrator = openmm.LangevinMiddleIntegrator(
+            298.15 * unit.kelvin, 1.0 / unit.picosecond, timestep
+        )
+        integrator.setConstraintTolerance(1e-6)
+        context = openmm.Context(system, integrator, platform)
         context.setPositions(positions)
         lambda_value = lambda_schedule.lambda_schedule[i]
+
         for key in lambda_schedule.functions:
-                value = lambda_schedule.functions[key](lambda_value)
-                context.setParameter(key, value)
-        openmm.LocalEnergyMinimizer.minimize(context, maxIterations=10000)
+            value = lambda_schedule.functions[key](lambda_value)
+            context.setParameter(key, value)
+
+        openmm.LocalEnergyMinimizer.minimize(context, maxIterations=1000)
+
+        context.setVelocitiesToTemperature(298.15)
+
         new_state = context.getState(getPositions=True, getVelocities=False)
         states.append(new_state)
-
+        contexts.append(context)
+        integrators.append(integrator)
 
     t0 = time.time()
 
-    n_iterations = int(int(nsteps/windows)/steps_per_exchange)
-    print(n_iterations)
+    n_iterations = int(int(nsteps / windows) / steps_per_exchange)
+    reduced_potentials = np.zeros((windows, n_iterations, windows))
+    print(f"Number of iterations: {n_iterations}")
+
     for it in range(n_iterations):
+        if it % 10 == 0:
+            print(f"iteration: {it}")
+
         for replica in range(windows):
-            print(f"manual multistate: iteration {it} replica {replica}")
-            context.setState(states[replica])
-
-            if it == 0:
-                context.setVelocitiesToTemperature(298.15)
-
-            lambda_value = lambda_schedule.lambda_schedule[replica]
-            for key in lambda_schedule.functions:
-                value = lambda_schedule.functions[key](lambda_value)
-                context.setParameter(key, value)
+            # Set state again to replicate the cost of assigning the state back
+            contexts[replica].setState(states[replica])
 
             for attempt in range(max_retries):
                 try:
-                    integrator.step(steps_per_exchange)
-                    new_state = context.getState(getPositions=True, getVelocities=True)
+                    integrators[replica].step(steps_per_exchange)
+                    new_state = contexts[replica].getState(
+                        getPositions=True, getVelocities=True
+                    )
                     states[replica] = new_state
                 except OpenMMException:
                     if attempt == max_retries - 1:
-                        raise ValueError(f'NaNed at iteration {it} replica {replica}')
+                        raise ValueError(f"NaNed at iteration {it} replica {replica}")
                     else:
                         print("NaN detected, randomizing velocities and trying again")
-                        context.setState(states[replica])
-                        context.setVelocitiesToTemperature(298.15)
+                        contexts[replica].setState(states[replica])
+                        contexts[replica].setVelocitiesToTemperature(298.15)
                     continue
                 else:
                     break
-    t1 = time.time()
+            # First approach is too slow because it uploads coordinates to the device too often
+            # reduced_potentials[replica][it] = _get_reduced_potentials(contexts[replica], states, replica)
+            reduced_potentials[replica][it] = _get_reduced_potentials2(contexts[replica], lambda_schedule, replica)
 
-    return t1-t0
+        # TODO: add a call here where we swap the state indices to do the exchange
+        # This *shouldn't* add much overhead, because all we're doing is using energies already in the reduced potentials
+        # and swapping the state indices.
+
+    t1 = time.time()
+    return t1 - t0
 
 
 def deserialize(xml, npz):
     """
     Deserialize an OpenMM system in xml format and positions stored in npz.
     """
-    with bz2.open(xml, 'rb') as file:
+    with bz2.open(xml, "rb") as file:
         thing = file.read().decode()
         system = XmlSerializer.deserialize(thing)
 
-    off_positions = np.load(npz)['positions'] * offunit.nanometer
+    off_positions = np.load(npz)["positions"] * offunit.nanometer
     return system, to_openmm(off_positions)
 
 
 md_results = {}
 multi_results = {}
-multi_results_new = {}
+multi_results_manual = {}
 
-for system_type in ['hybrid', 'standard']:
+for system_type in ["hybrid", "standard"]:
     system, positions = deserialize(
         f"{system_type}_system.xml",
         f"{system_type}_positions.npz",
@@ -239,15 +307,21 @@ for system_type in ['hybrid', 'standard']:
 
     adjust_system(system)
 
-    # md_results[system_type] = benchmark_md(system, positions, tag=system_type)
-    # print(f"{system_type} MD simulation time: ", md_results[system_type])
+    md_results[system_type] = benchmark_md(system, positions, tag=system_type)
+    print(f"{system_type} MD simulation time: ", md_results[system_type])
 
-    if system_type == 'hybrid':
-        # multi_results[system_type] = benchmark_multistate(system, positions)
-        print(benchmark_manual_multistate(system, positions))
+    if system_type == "hybrid":
+        multi_results[system_type] = benchmark_multistate(system, positions)
+        print(multi_results[system_type])
+        multi_results_manual[system_type] = benchmark_manual_multistate(
+            system, positions
+        )
+        print(multi_results_manual[system_type])
 
 
-system_speedup = md_results['standard'] / md_results['hybrid']
+system_speedup = md_results["standard"] / md_results["hybrid"]
 print("Hybrid system speedup: ", system_speedup)
-sampler_speedup = md_results['hybrid'] / multi_results['hybrid']
-print("Sampler speedup: ", sampler_speedup)
+sampler_speedup = md_results["hybrid"] / multi_results["hybrid"]
+print("MD/OpenMMTools HREX speedup: ", sampler_speedup)
+manual_sampler_speedup = md_results["hybrid"] / multi_results_manual["hybrid"]
+print("MD/Manual HREX speedup: ", manual_sampler_speedup)
