@@ -24,7 +24,7 @@ def get_settings():
     settings.simulation_settings.equilibration_length_nvt = 1 * unit.picosecond
     settings.simulation_settings.equilibration_length = 1 * unit.picosecond
     settings.simulation_settings.production_length = 1 * unit.picosecond
-    settings.solvation_settings.box_shape = 'dodecahedron'
+    # settings.solvation_settings.box_shape = 'dodecahedron'
     settings.output_settings.checkpoint_interval = 100 * unit.picosecond
     settings.engine_settings.compute_platform = 'cuda'
     return settings
@@ -122,7 +122,12 @@ def run_inputs(pdb, cofactors, edge):
                     components_dict[entry] = cofactor
 
         if edge is not None:
-            mapping = openfe.LigandAtomMapping.from_json(edge)
+            try:
+                mapping = openfe.LigandAtomMapping.from_json(edge)
+            except AttributeError:
+                with open(edge, 'r') as fd:
+                    mapping = openfe.LigandAtomMapping.from_dict(json.load(fd))
+
             components_dict['ligand'] = mapping.componentA
 
         # Create the ChemicalSystem
@@ -131,8 +136,8 @@ def run_inputs(pdb, cofactors, edge):
         # Get the settings and create the protocol
         settings = get_settings()
 
-        if leg == 'solvent':
-            settings.solvation_settings.solvent_padding = 1.5 * unit.nanometer
+        #if leg == 'solvent':
+        #    settings.solvation_settings.solvent_padding = 1.5 * unit.nanometer
 
         protocol = PlainMDProtocol(settings=settings)
 

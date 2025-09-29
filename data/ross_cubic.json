@@ -1,0 +1,608 @@
+{
+    "jnk1": {
+        "edge": "ross_2023/jacs/jnk1/jnk1_edge.json",
+        "protein": "ross_2023/jacs/jnk1/protein.pdb",
+        "atoms": {
+            "complex": 65992,
+            "solvent": 1623
+        },
+        "waters": {
+            "complex": 10109,
+            "solvent": 527
+        }
+    },
+    "dlk": {
+        "edge": "ross_2023/charge_annihilation_set/dlk/dlk_edge.json",
+        "protein": "ross_2023/charge_annihilation_set/dlk/protein.pdb",
+        "atoms": {
+            "complex": 57990,
+            "solvent": 1965
+        },
+        "waters": {
+            "complex": 10097,
+            "solvent": 641
+        }
+    },
+    "irak4_s3": {
+        "edge": "ross_2023/charge_annihilation_set/irak4_s3/irak4_s3_edge.json",
+        "protein": "ross_2023/charge_annihilation_set/irak4_s3/protein.pdb",
+        "atoms": {
+            "complex": 49909,
+            "solvent": 1949
+        },
+        "waters": {
+            "complex": 10098,
+            "solvent": 634
+        }
+    },
+    "irak4_s2": {
+        "edge": "ross_2023/charge_annihilation_set/irak4_s2/irak4_s2_edge.json",
+        "protein": "ross_2023/charge_annihilation_set/irak4_s2/protein.pdb",
+        "atoms": {
+            "complex": 48777,
+            "solvent": 2440
+        },
+        "waters": {
+            "complex": 10097,
+            "solvent": 796
+        }
+    },
+    "itk": {
+        "edge": "ross_2023/charge_annihilation_set/itk/itk_edge.json",
+        "protein": "ross_2023/charge_annihilation_set/itk/protein.pdb",
+        "atoms": {
+            "complex": 45787,
+            "solvent": 2552
+        },
+        "waters": {
+            "complex": 10306,
+            "solvent": 833
+        }
+    },
+    "ephx2": {
+        "edge": "ross_2023/charge_annihilation_set/ephx2/ephx2_edge.json",
+        "protein": "ross_2023/charge_annihilation_set/ephx2/protein.pdb",
+        "atoms": {
+            "complex": 36740,
+            "solvent": 1930
+        },
+        "waters": {
+            "complex": 10066,
+            "solvent": 631
+        }
+    },
+    "cdk2": {
+        "edge": "ross_2023/jacs/cdk2/cdk2_edge.json",
+        "protein": "ross_2023/jacs/cdk2/protein.pdb",
+        "atoms": {
+            "complex": 101830,
+            "solvent": 1583
+        },
+        "waters": {
+            "complex": 10168,
+            "solvent": 512
+        }
+    },
+    "ptp1b": {
+        "edge": "ross_2023/jacs/ptp1b/ptp1b_edge.json",
+        "protein": "ross_2023/jacs/ptp1b/protein.pdb",
+        "atoms": {
+            "complex": 54297,
+            "solvent": 1604
+        },
+        "waters": {
+            "complex": 10320,
+            "solvent": 523
+        }
+    },
+    "egfr": {
+        "edge": "ross_2023/charge_annihilation_set/egfr/egfr_edge.json",
+        "protein": "ross_2023/charge_annihilation_set/egfr/protein.pdb",
+        "atoms": {
+            "complex": 61351,
+            "solvent": 4088
+        },
+        "waters": {
+            "complex": 10111,
+            "solvent": 1342
+        }
+    },
+    "jak1": {
+        "edge": "ross_2023/charge_annihilation_set/jak1/jak1_edge.json",
+        "protein": "ross_2023/charge_annihilation_set/jak1/protein.pdb",
+        "atoms": {
+            "complex": 58464,
+            "solvent": 1260
+        },
+        "waters": {
+            "complex": 10259,
+            "solvent": 410
+        }
+    },
+    "tyk2": {
+        "edge": "ross_2023/jacs/tyk2/tyk2_edge.json",
+        "protein": "ross_2023/jacs/tyk2/protein.pdb",
+        "atoms": {
+            "complex": 53034,
+            "solvent": 1646
+        },
+        "waters": {
+            "complex": 10091,
+            "solvent": 539
+        }
+    },
+    "thrombin": {
+        "edge": "ross_2023/jacs/thrombin/thrombin_edge.json",
+        "protein": "ross_2023/jacs/thrombin/protein.pdb",
+        "atoms": {
+            "complex": 41690,
+            "solvent": 1495
+        },
+        "waters": {
+            "complex": 10228,
+            "solvent": 483
+        }
+    },
+    "galectin": {
+        "edge": "ross_2023/miscellaneous_set/galectin/galectin_edge.json",
+        "protein": "ross_2023/miscellaneous_set/galectin/protein.pdb",
+        "atoms": {
+            "complex": 29584,
+            "solvent": 2324
+        },
+        "waters": {
+            "complex": 9136,
+            "solvent": 759
+        }
+    },
+    "faah": {
+        "edge": "ross_2023/miscellaneous_set/faah/faah_edge.json",
+        "protein": "ross_2023/miscellaneous_set/faah/protein.pdb",
+        "atoms": {
+            "complex": 69681,
+            "solvent": 2576
+        },
+        "waters": {
+            "complex": 10117,
+            "solvent": 846
+        }
+    },
+    "hiv1_protease": {
+        "edge": "ross_2023/miscellaneous_set/hiv1_protease/hiv1_protease_edge.json",
+        "protein": "ross_2023/miscellaneous_set/hiv1_protease/protein.pdb",
+        "atoms": {
+            "complex": 44544,
+            "solvent": 3583
+        },
+        "waters": {
+            "complex": 10244,
+            "solvent": 1165
+        }
+    },
+    "cdk8": {
+        "edge": "ross_2023/merck/cdk8/cdk8_edge.json",
+        "protein": "ross_2023/merck/cdk8/protein.pdb",
+        "atoms": {
+            "complex": 145257,
+            "solvent": 1248
+        },
+        "waters": {
+            "complex": 13460,
+            "solvent": 403
+        }
+    },
+    "btk": {
+        "edge": "ross_2023/miscellaneous_set/btk/btk_edge.json",
+        "protein": "ross_2023/miscellaneous_set/btk/protein.pdb",
+        "atoms": {
+            "complex": 67386,
+            "solvent": 1255
+        },
+        "waters": {
+            "complex": 10456,
+            "solvent": 409
+        }
+    },
+    "bace1": {
+        "edge": "ross_2023/scaffold_hopping_set/bace1/bace1_edge.json",
+        "protein": "ross_2023/scaffold_hopping_set/bace1/protein.pdb",
+        "cofactors": "ross_2023/scaffold_hopping_set/bace1/cofactors.sdf",
+        "atoms": {
+            "complex": 64102,
+            "solvent": 1242
+        },
+        "waters": {
+            "complex": 10131,
+            "solvent": 403
+        }
+    },
+    "factor_xa": {
+        "edge": "ross_2023/scaffold_hopping_set/factor_xa/factor_xa_edge.json",
+        "protein": "ross_2023/scaffold_hopping_set/factor_xa/protein.pdb",
+        "atoms": {
+            "complex": 53111,
+            "solvent": 2533
+        },
+        "waters": {
+            "complex": 10259,
+            "solvent": 825
+        }
+    },
+    "chk1": {
+        "edge": "ross_2023/water_set/chk1/chk1_edge.json",
+        "protein": "ross_2023/water_set/chk1/protein.pdb",
+        "atoms": {
+            "complex": 65460,
+            "solvent": 3439
+        },
+        "waters": {
+            "complex": 10280,
+            "solvent": 1130
+        }
+    },
+    "hsp90_woodhead": {
+        "edge": "ross_2023/water_set/hsp90_woodhead/hsp90_woodhead_edge.json",
+        "protein": "ross_2023/water_set/hsp90_woodhead/protein.pdb",
+        "cofactors": "ross_2023/water_set/hsp90_woodhead/cofactors.sdf",
+        "atoms": {
+            "complex": 30032,
+            "solvent": 1449
+        },
+        "waters": {
+            "complex": 8937,
+            "solvent": 470
+        }
+    },
+    "brd4": {
+        "edge": "ross_2023/bayer_macrocycles/brd4/brd4_edge.json",
+        "protein": "ross_2023/bayer_macrocycles/brd4/protein.pdb",
+        "atoms": {
+            "complex": 23971,
+            "solvent": 1656
+        },
+        "waters": {
+            "complex": 7407,
+            "solvent": 534
+        }
+    },
+    "urokinase": {
+        "edge": "ross_2023/water_set/urokinase/urokinase_edge.json",
+        "protein": "ross_2023/water_set/urokinase/protein.pdb",
+        "atoms": {
+            "complex": 47452,
+            "solvent": 2034
+        },
+        "waters": {
+            "complex": 10274,
+            "solvent": 667
+        }
+    },
+    "scyt_dehyd": {
+        "edge": "ross_2023/water_set/scyt_dehyd/scyt_dehyd_edge.json",
+        "protein": "ross_2023/water_set/scyt_dehyd/protein.pdb",
+        "atoms": {
+            "complex": 41923,
+            "solvent": 1558
+        },
+        "waters": {
+            "complex": 10209,
+            "solvent": 505
+        }
+    },
+    "taf12": {
+        "edge": "ross_2023/water_set/taf12/taf12_edge.json",
+        "protein": "ross_2023/water_set/taf12/protein.pdb",
+        "atoms": {
+            "complex": 65969,
+            "solvent": 1560
+        },
+        "waters": {
+            "complex": 10300,
+            "solvent": 507
+        }
+    },
+    "hsp90_kung": {
+        "edge": "ross_2023/water_set/hsp90_kung/hsp90_kung_edge.json",
+        "protein": "ross_2023/water_set/hsp90_kung/protein.pdb",
+        "atoms": {
+            "complex": 59277,
+            "solvent": 1326
+        },
+        "waters": {
+            "complex": 10274,
+            "solvent": 433
+        }
+    },
+    "bace_p3_arg368_in": {
+        "edge": "ross_2023/janssen_bace/bace_p3_arg368_in/bace_p3_arg368_in_edge.json",
+        "protein": "ross_2023/janssen_bace/bace_p3_arg368_in/protein.pdb",
+        "atoms": {
+            "complex": 67308,
+            "solvent": 2015
+        },
+        "waters": {
+            "complex": 10406,
+            "solvent": 658
+        }
+    },
+    "keranen_p2": {
+        "edge": "ross_2023/janssen_bace/keranen_p2/keranen_p2_edge.json",
+        "protein": "ross_2023/janssen_bace/keranen_p2/protein.pdb",
+        "atoms": {
+            "complex": 59625,
+            "solvent": 2158
+        },
+        "waters": {
+            "complex": 10189,
+            "solvent": 705
+        }
+    },
+    "ciordia_retro": {
+        "edge": "ross_2023/janssen_bace/ciordia_retro/ciordia_retro_edge.json",
+        "protein": "ross_2023/janssen_bace/ciordia_retro/protein.pdb",
+        "atoms": {
+            "complex": 65490,
+            "solvent": 1418
+        },
+        "waters": {
+            "complex": 10434,
+            "solvent": 459
+        }
+    },
+    "bace_ciordia_prospective": {
+        "edge": "ross_2023/janssen_bace/bace_ciordia_prospective/bace_ciordia_prospective_edge.json",
+        "protein": "ross_2023/janssen_bace/bace_ciordia_prospective/protein.pdb",
+        "atoms": {
+            "complex": 65743,
+            "solvent": 1859
+        },
+        "waters": {
+            "complex": 10434,
+            "solvent": 607
+        }
+    },
+    "mup1": {
+        "edge": "ross_2023/fragments/mup1/mup1_edge.json",
+        "protein": "ross_2023/fragments/mup1/protein.pdb",
+        "atoms": {
+            "complex": 25769,
+            "solvent": 1278
+        },
+        "waters": {
+            "complex": 7791,
+            "solvent": 420
+        }
+    },
+    "t4_lysozyme": {
+        "edge": "ross_2023/fragments/t4_lysozyme/t4_lysozyme_edge.json",
+        "protein": "ross_2023/fragments/t4_lysozyme/protein.pdb",
+        "atoms": {
+            "complex": 33992,
+            "solvent": 1283
+        },
+        "waters": {
+            "complex": 10066,
+            "solvent": 423
+        }
+    },
+    "p38": {
+        "edge": "ross_2023/jacs/p38/p38_edge.json",
+        "protein": "ross_2023/jacs/p38/protein.pdb",
+        "atoms": {
+            "complex": 69688,
+            "solvent": 2254
+        },
+        "waters": {
+            "complex": 10465,
+            "solvent": 738
+        }
+    },
+    "jak2_set2": {
+        "edge": "ross_2023/fragments/jak2_set2/jak2_set2_edge.json",
+        "protein": "ross_2023/fragments/jak2_set2/protein.pdb",
+        "atoms": {
+            "complex": 60264,
+            "solvent": 1557
+        },
+        "waters": {
+            "complex": 10438,
+            "solvent": 506
+        }
+    },
+    "liga": {
+        "edge": "ross_2023/fragments/liga/liga_edge.json",
+        "protein": "ross_2023/fragments/liga/protein.pdb",
+        "atoms": {
+            "complex": 75182,
+            "solvent": 1276
+        },
+        "waters": {
+            "complex": 10438,
+            "solvent": 421
+        }
+    },
+    "hsp90_single_ring": {
+        "edge": "ross_2023/fragments/hsp90_single_ring/hsp90_single_ring_edge.json",
+        "protein": "ross_2023/fragments/hsp90_single_ring/protein.pdb",
+        "atoms": {
+            "complex": 33515,
+            "solvent": 1490
+        },
+        "waters": {
+            "complex": 10108,
+            "solvent": 487
+        }
+    },
+    "mcl1": {
+        "edge": "ross_2023/jacs/mcl1/mcl1_edge.json",
+        "protein": "ross_2023/jacs/mcl1/protein.pdb",
+        "atoms": {
+            "complex": 23199,
+            "solvent": 1292
+        },
+        "waters": {
+            "complex": 6938,
+            "solvent": 419
+        }
+    },
+    "jak2_set1": {
+        "edge": "ross_2023/fragments/jak2_set1/jak2_set1_edge.json",
+        "protein": "ross_2023/fragments/jak2_set1/protein.pdb",
+        "atoms": {
+            "complex": 56538,
+            "solvent": 1280
+        },
+        "waters": {
+            "complex": 10359,
+            "solvent": 420
+        }
+    },
+    "hsp90_2rings": {
+        "edge": "ross_2023/fragments/hsp90_2rings/hsp90_2rings_edge.json",
+        "protein": "ross_2023/fragments/hsp90_2rings/protein.pdb",
+        "atoms": {
+            "complex": 33525,
+            "solvent": 1485
+        },
+        "waters": {
+            "complex": 10108,
+            "solvent": 482
+        }
+    },
+    "renin": {
+        "edge": "ross_2023/mcs_docking_set/renin/renin_edge.json",
+        "protein": "ross_2023/mcs_docking_set/renin/protein.pdb",
+        "atoms": {
+            "complex": 70312,
+            "solvent": 1723
+        },
+        "waters": {
+            "complex": 10186,
+            "solvent": 556
+        }
+    },
+    "hne": {
+        "edge": "ross_2023/mcs_docking_set/hne/hne_edge.json",
+        "protein": "ross_2023/mcs_docking_set/hne/protein.pdb",
+        "cofactors": "ross_2023/mcs_docking_set/hne/cofactors.sdf",
+        "atoms": {
+            "complex": 28601,
+            "solvent": 1772
+        },
+        "waters": {
+            "complex": 8444,
+            "solvent": 575
+        }
+    },
+    "eg5": {
+        "edge": "ross_2023/merck/eg5/eg5_edge.json",
+        "protein": "ross_2023/merck/eg5/protein.pdb",
+        "atoms": {
+            "complex": 81945,
+            "solvent": 1760
+        },
+        "waters": {
+            "complex": 10282,
+            "solvent": 572
+        }
+    },
+    "hif2a": {
+        "edge": "ross_2023/merck/hif2a/hif2a_edge.json",
+        "protein": "ross_2023/merck/hif2a/protein.pdb",
+        "atoms": {
+            "complex": 26689,
+            "solvent": 1443
+        },
+        "waters": {
+            "complex": 8332,
+            "solvent": 470
+        }
+    },
+    "pfkfb3": {
+        "edge": "ross_2023/merck/pfkfb3/pfkfb3_edge.json",
+        "protein": "ross_2023/merck/pfkfb3/protein.pdb",
+        "cofactors": "ross_2023/merck/pfkfb3/cofactors.sdf",
+        "atoms": {
+            "complex": 98010,
+            "solvent": 1593
+        },
+        "waters": {
+            "complex": 10542,
+            "solvent": 518
+        }
+    },
+    "shp2": {
+        "edge": "ross_2023/merck/shp2/shp2_edge.json",
+        "protein": "ross_2023/merck/shp2/protein.pdb",
+        "atoms": {
+            "complex": 100251,
+            "solvent": 1489
+        },
+        "waters": {
+            "complex": 10185,
+            "solvent": 485
+        }
+    },
+    "syk": {
+        "edge": "ross_2023/merck/syk/syk_edge.json",
+        "protein": "ross_2023/merck/syk/protein.pdb",
+        "atoms": {
+            "complex": 51038,
+            "solvent": 1663
+        },
+        "waters": {
+            "complex": 10137,
+            "solvent": 541
+        }
+    },
+    "tnks2": {
+        "edge": "ross_2023/merck/tnks2/tnks2_edge.json",
+        "protein": "ross_2023/merck/tnks2/protein.pdb",
+        "cofactors": "ross_2023/merck/tnks2/cofactors.sdf",
+        "atoms": {
+            "complex": 39934,
+            "solvent": 1250
+        },
+        "waters": {
+            "complex": 10334,
+            "solvent": 409
+        }
+    },
+    "cmet": {
+        "edge": "ross_2023/merck/cmet/cmet_edge.json",
+        "protein": "ross_2023/merck/cmet/protein.pdb",
+        "atoms": {
+            "complex": 56942,
+            "solvent": 1632
+        },
+        "waters": {
+            "complex": 10233,
+            "solvent": 527
+        }
+    },
+    "ftase": {
+        "edge": "ross_2023/bayer_macrocycles/ftase/ftase_edge.json",
+        "protein": "ross_2023/bayer_macrocycles/ftase/protein.pdb",
+        "cofactors": "ross_2023/bayer_macrocycles/ftase/cofactors.sdf",
+        "atoms": {
+            "complex": 144910,
+            "solvent": 1353
+        },
+        "waters": {
+            "complex": 13417,
+            "solvent": 436
+        }
+    },
+    "bace": {
+        "edge": "ross_2023/jacs/bace/bace_edge.json",
+        "protein": "ross_2023/jacs/bace/protein.pdb",
+        "atoms": {
+            "complex": 76169,
+            "solvent": 1650
+        },
+        "waters": {
+            "complex": 10154,
+            "solvent": 536
+        }
+    }
+}
