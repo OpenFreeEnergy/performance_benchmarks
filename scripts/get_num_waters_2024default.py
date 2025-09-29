@@ -10,6 +10,7 @@ import openfe
 from openfe.protocols.openmm_md.plain_md_methods import PlainMDProtocol
 from rdkit import Chem
 import MDAnalysis as mda
+import json
 
 
 def get_settings():
@@ -25,7 +26,6 @@ def get_settings():
     settings.simulation_settings.production_length = 1 * unit.picosecond
     settings.solvation_settings.box_shape = 'dodecahedron'
     settings.output_settings.checkpoint_interval = 100 * unit.picosecond
-    settings.forcefield_settings.nonbonded_cutoff = 0.9 * unit.nanometer
     settings.engine_settings.compute_platform = 'cuda'
     return settings
 
@@ -170,6 +170,8 @@ def run(protein, edge, cofactors):
     """
     results = run_inputs(pdb=protein, cofactors=cofactors, edge=edge)
     print(results)
+    with open('waters_cubic_default.json', 'w') as fp:
+        json.dump(results, fp)
 
 
 if __name__ == "__main__":

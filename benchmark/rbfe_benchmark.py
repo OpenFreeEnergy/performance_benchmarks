@@ -20,18 +20,19 @@ def get_settings(waters):
     settings = RelativeHybridTopologyProtocol.default_settings()
     settings.simulation_settings.equilibration_length = 100 * unit.picosecond
     settings.simulation_settings.production_length = 500 * unit.picosecond
-    settings.simulation_settings.time_per_iteration = 2.5 * unit.picosecond
+    #settings.simulation_settings.time_per_iteration = 2.5 * unit.picosecond
     settings.simulation_settings.real_time_analysis_interval = 100 * unit.picosecond
     settings.output_settings.checkpoint_interval = 100 * unit.picosecond
     settings.output_settings.positions_write_frequency = 100 * unit.picosecond
-    settings.solvation_settings = OpenMMSolvationSettings(
-        number_of_solvent_molecules=waters,
-        box_shape='dodecahedron',
-        solvent_padding=None,
-    )
-    settings.forcefield_settings.nonbonded_cutoff = 0.9 * unit.nanometer
+    #settings.solvation_settings = OpenMMSolvationSettings(
+    #    number_of_solvent_molecules=waters,
+    #    box_shape='dodecahedron',
+    #    solvent_padding=None,
+    #)
+    #settings.forcefield_settings.nonbonded_cutoff = 0.9 * unit.nanometer
     settings.protocol_repeats = 1
     settings.engine_settings.compute_platform = "cuda"
+    settings.alchemical_settings.explicit_charge_correction = True
     return settings
 
 

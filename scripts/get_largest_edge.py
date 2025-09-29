@@ -1,6 +1,8 @@
 import click
 from pathlib import Path
 from openfe import LigandNetwork
+from gufe.tokenization import JSON_HANDLER
+import json
 
 
 def get_ligandnetwork_from_graphml(graphml_path):
@@ -29,7 +31,11 @@ def get_largest_uniques(network):
 def process_system(graphml, name):
     network = get_ligandnetwork_from_graphml(graphml)
     edge = get_largest_uniques(network)
-    edge.to_json(f"{name}_edge.json")
+    try:
+        edge.to_json(f"{name}_edge.json")
+    except AttributeError:
+        with open(f'{name}_edge.json', "w") as fd:
+            json.dump(edge.to_dict(), fd, cls=JSON_HANDLER.encoder)
 
 
 @click.command
