@@ -1,0 +1,100 @@
+{
+    "eg5": {
+        "edge": "ross_2023/merck/eg5/eg5_edge.json",
+        "protein": "ross_2023/merck/eg5/protein.pdb",
+        "atoms": {
+            "complex": 81945,
+            "solvent": 1760
+        },
+        "waters": {
+            "complex": 10282,
+            "solvent": 572
+        }
+    },
+    "hif2a": {
+        "edge": "ross_2023/merck/hif2a/hif2a_edge.json",
+        "protein": "ross_2023/merck/hif2a/protein.pdb",
+        "atoms": {
+            "complex": 26689,
+            "solvent": 1443
+        },
+        "waters": {
+            "complex": 8332,
+            "solvent": 470
+        }
+    },
+    "pfkfb3": {
+        "edge": "ross_2023/merck/pfkfb3/pfkfb3_edge.json",
+        "protein": "ross_2023/merck/pfkfb3/protein.pdb",
+        "cofactors": "ross_2023/merck/pfkfb3/cofactors.sdf",
+        "atoms": {
+            "complex": 98010,
+            "solvent": 1593
+        },
+        "waters": {
+            "complex": 10542,
+            "solvent": 518
+        }
+    },
+    "shp2": {
+        "edge": "ross_2023/merck/shp2/shp2_edge.json",
+        "protein": "ross_2023/merck/shp2/protein.pdb",
+        "atoms": {
+            "complex": 100251,
+            "solvent": 1489
+        },
+        "waters": {
+            "complex": 10185,
+            "solvent": 485
+        }
+    },
+    "syk": {
+        "edge": "ross_2023/merck/syk/syk_edge.json",
+        "protein": "ross_2023/merck/syk/protein.pdb",
+        "atoms": {
+            "complex": 51038,
+            "solvent": 1663
+        },
+        "waters": {
+            "complex": 10137,
+            "solvent": 541
+        }
+    },
+    "cdk8": {
+        "edge": "ross_2023/merck/cdk8/cdk8_edge.json",
+        "protein": "ross_2023/merck/cdk8/protein.pdb",
+        "atoms": {
+            "complex": 145257,
+            "solvent": 1248
+        },
+        "waters": {
+            "complex": 13460,
+            "solvent": 403
+        }
+    },
+    "tnks2": {
+        "edge": "ross_2023/merck/tnks2/tnks2_edge.json",
+        "protein": "ross_2023/merck/tnks2/protein.pdb",
+        "cofactors": "ross_2023/merck/tnks2/cofactors.sdf",
+        "atoms": {
+            "complex": 39934,
+            "solvent": 1250
+        },
+        "waters": {
+            "complex": 10334,
+            "solvent": 409
+        }
+    },
+    "cmet": {
+        "edge": "ross_2023/merck/cmet/cmet_edge.json",
+        "protein": "ross_2023/merck/cmet/protein.pdb",
+        "atoms": {
+            "complex": 56942,
+            "solvent": 1632
+        },
+        "waters": {
+            "complex": 10233,
+            "solvent": 527
+        }
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "ftase": {
+        "edge": "ross_2023/bayer_macrocycles/ftase/ftase_edge.json",
+        "protein": "ross_2023/bayer_macrocycles/ftase/protein.pdb",
+        "cofactors": "ross_2023/bayer_macrocycles/ftase/cofactors.sdf",
+        "atoms": {
+            "complex": 144910,
+            "solvent": 1353
+        },
+        "waters": {
+            "complex": 13417,
+            "solvent": 436
+        }
+    },
+    "brd4": {
+        "edge": "ross_2023/bayer_macrocycles/brd4/brd4_edge.json",
+        "protein": "ross_2023/bayer_macrocycles/brd4/protein.pdb",
+        "atoms": {
+            "complex": 23971,
+            "solvent": 1656
+        },
+        "waters": {
+            "complex": 7407,
+            "solvent": 534
+        }
+    }
+}

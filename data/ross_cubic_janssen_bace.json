@@ -1,0 +1,50 @@
+{
+    "bace_p3_arg368_in": {
+        "edge": "ross_2023/janssen_bace/bace_p3_arg368_in/bace_p3_arg368_in_edge.json",
+        "protein": "ross_2023/janssen_bace/bace_p3_arg368_in/protein.pdb",
+        "atoms": {
+            "complex": 67308,
+            "solvent": 2015
+        },
+        "waters": {
+            "complex": 10406,
+            "solvent": 658
+        }
+    },
+    "keranen_p2": {
+        "edge": "ross_2023/janssen_bace/keranen_p2/keranen_p2_edge.json",
+        "protein": "ross_2023/janssen_bace/keranen_p2/protein.pdb",
+        "atoms": {
+            "complex": 59625,
+            "solvent": 2158
+        },
+        "waters": {
+            "complex": 10189,
+            "solvent": 705
+        }
+    },
+    "ciordia_retro": {
+        "edge": "ross_2023/janssen_bace/ciordia_retro/ciordia_retro_edge.json",
+        "protein": "ross_2023/janssen_bace/ciordia_retro/protein.pdb",
+        "atoms": {
+            "complex": 65490,
+            "solvent": 1418
+        },
+        "waters": {
+            "complex": 10434,
+            "solvent": 459
+        }
+    },
+    "bace_ciordia_prospective": {
+        "edge": "ross_2023/janssen_bace/bace_ciordia_prospective/bace_ciordia_prospective_edge.json",
+        "protein": "ross_2023/janssen_bace/bace_ciordia_prospective/protein.pdb",
+        "atoms": {
+            "complex": 65743,
+            "solvent": 1859
+        },
+        "waters": {
+            "complex": 10434,
+            "solvent": 607
+        }
+    }
+}

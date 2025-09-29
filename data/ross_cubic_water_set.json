@@ -1,0 +1,99 @@
+{
+    "chk1": {
+        "edge": "ross_2023/water_set/chk1/chk1_edge.json",
+        "protein": "ross_2023/water_set/chk1/protein.pdb",
+        "atoms": {
+            "complex": 65460,
+            "solvent": 3439
+        },
+        "waters": {
+            "complex": 10280,
+            "solvent": 1130
+        }
+    },
+    "hsp90_woodhead": {
+        "edge": "ross_2023/water_set/hsp90_woodhead/hsp90_woodhead_edge.json",
+        "protein": "ross_2023/water_set/hsp90_woodhead/protein.pdb",
+        "cofactors": "ross_2023/water_set/hsp90_woodhead/cofactors.sdf",
+        "atoms": {
+            "complex": 30032,
+            "solvent": 1449
+        },
+        "waters": {
+            "complex": 8937,
+            "solvent": 470
+        }
+    },
+    "brd4": {
+        "edge": "ross_2023/water_set/brd4/brd4_edge.json",
+        "protein": "ross_2023/water_set/brd4/protein.pdb",
+        "atoms": {
+            "complex": 30424,
+            "solvent": 1590
+        },
+        "waters": {
+            "complex": 9459,
+            "solvent": 516
+        }
+    },
+    "urokinase": {
+        "edge": "ross_2023/water_set/urokinase/urokinase_edge.json",
+        "protein": "ross_2023/water_set/urokinase/protein.pdb",
+        "atoms": {
+            "complex": 47452,
+            "solvent": 2034
+        },
+        "waters": {
+            "complex": 10274,
+            "solvent": 667
+        }
+    },
+    "scyt_dehyd": {
+        "edge": "ross_2023/water_set/scyt_dehyd/scyt_dehyd_edge.json",
+        "protein": "ross_2023/water_set/scyt_dehyd/protein.pdb",
+        "atoms": {
+            "complex": 41923,
+            "solvent": 1558
+        },
+        "waters": {
+            "complex": 10209,
+            "solvent": 505
+        }
+    },
+    "taf12": {
+        "edge": "ross_2023/water_set/taf12/taf12_edge.json",
+        "protein": "ross_2023/water_set/taf12/protein.pdb",
+        "atoms": {
+            "complex": 65969,
+            "solvent": 1560
+        },
+        "waters": {
+            "complex": 10300,
+            "solvent": 507
+        }
+    },
+    "thrombin": {
+        "edge": "ross_2023/water_set/thrombin/thrombin_edge.json",
+        "protein": "ross_2023/water_set/thrombin/protein.pdb",
+        "atoms": {
+            "complex": 41703,
+            "solvent": 1750
+        },
+        "waters": {
+            "complex": 10228,
+            "solvent": 568
+        }
+    },
+    "hsp90_kung": {
+        "edge": "ross_2023/water_set/hsp90_kung/hsp90_kung_edge.json",
+        "protein": "ross_2023/water_set/hsp90_kung/protein.pdb",
+        "atoms": {
+            "complex": 59277,
+            "solvent": 1326
+        },
+        "waters": {
+            "complex": 10274,
+            "solvent": 433
+        }
+    }
+}

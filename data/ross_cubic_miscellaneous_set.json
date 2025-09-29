@@ -1,0 +1,62 @@
+{
+    "galectin": {
+        "edge": "ross_2023/miscellaneous_set/galectin/galectin_edge.json",
+        "protein": "ross_2023/miscellaneous_set/galectin/protein.pdb",
+        "atoms": {
+            "complex": 29584,
+            "solvent": 2324
+        },
+        "waters": {
+            "complex": 9136,
+            "solvent": 759
+        }
+    },
+    "faah": {
+        "edge": "ross_2023/miscellaneous_set/faah/faah_edge.json",
+        "protein": "ross_2023/miscellaneous_set/faah/protein.pdb",
+        "atoms": {
+            "complex": 69681,
+            "solvent": 2576
+        },
+        "waters": {
+            "complex": 10117,
+            "solvent": 846
+        }
+    },
+    "hiv1_protease": {
+        "edge": "ross_2023/miscellaneous_set/hiv1_protease/hiv1_protease_edge.json",
+        "protein": "ross_2023/miscellaneous_set/hiv1_protease/protein.pdb",
+        "atoms": {
+            "complex": 44544,
+            "solvent": 3583
+        },
+        "waters": {
+            "complex": 10244,
+            "solvent": 1165
+        }
+    },
+    "cdk8": {
+        "edge": "ross_2023/miscellaneous_set/cdk8/cdk8_edge.json",
+        "protein": "ross_2023/miscellaneous_set/cdk8/protein.pdb",
+        "atoms": {
+            "complex": 133135,
+            "solvent": 1253
+        },
+        "waters": {
+            "complex": 12385,
+            "solvent": 409
+        }
+    },
+    "btk": {
+        "edge": "ross_2023/miscellaneous_set/btk/btk_edge.json",
+        "protein": "ross_2023/miscellaneous_set/btk/protein.pdb",
+        "atoms": {
+            "complex": 67386,
+            "solvent": 1255
+        },
+        "waters": {
+            "complex": 10456,
+            "solvent": 409
+        }
+    }
+}

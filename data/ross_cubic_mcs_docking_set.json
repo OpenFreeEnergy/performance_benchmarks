@@ -1,0 +1,27 @@
+{
+    "renin": {
+        "edge": "ross_2023/mcs_docking_set/renin/renin_edge.json",
+        "protein": "ross_2023/mcs_docking_set/renin/protein.pdb",
+        "atoms": {
+            "complex": 70312,
+            "solvent": 1723
+        },
+        "waters": {
+            "complex": 10186,
+            "solvent": 556
+        }
+    },
+    "hne": {
+        "edge": "ross_2023/mcs_docking_set/hne/hne_edge.json",
+        "protein": "ross_2023/mcs_docking_set/hne/protein.pdb",
+        "cofactors": "ross_2023/mcs_docking_set/hne/cofactors.sdf",
+        "atoms": {
+            "complex": 28601,
+            "solvent": 1772
+        },
+        "waters": {
+            "complex": 8444,
+            "solvent": 575
+        }
+    }
+}
