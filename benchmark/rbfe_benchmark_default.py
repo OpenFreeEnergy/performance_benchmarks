@@ -73,8 +73,8 @@ def run_md(dag, protocol):
             shared_basedir=workdir,
             scratch_basedir=workdir,
             keep_shared=True,
-            raise_error=True,
-            n_retries=0,
+            raise_error=False,
+            n_retries=3,
         )
 
         if not dagres.ok():

@@ -1,0 +1,98 @@
+{
+    "bace": {
+        "edge": "ross_2023/jacs/bace/bace_edge.json",
+        "protein": "ross_2023/jacs/bace/protein.pdb",
+        "atoms": {
+            "complex": 49052,
+            "solvent": 1748
+        },
+        "waters": {
+            "complex": 10106,
+            "solvent": 570
+        }
+    },
+    "p38": {
+        "edge": "ross_2023/jacs/p38/p38_edge.json",
+        "protein": "ross_2023/jacs/p38/protein.pdb",
+        "atoms": {
+            "complex": 44939,
+            "solvent": 2140
+        },
+        "waters": {
+            "complex": 10421,
+            "solvent": 700
+        }
+    },
+    "jnk1": {
+        "edge": "ross_2023/jacs/jnk1/jnk1_edge.json",
+        "protein": "ross_2023/jacs/jnk1/protein.pdb",
+        "atoms": {
+            "complex": 42814,
+            "solvent": 1751
+        },
+        "waters": {
+            "complex": 10067,
+            "solvent": 571
+        }
+    },
+    "cdk2": {
+        "edge": "ross_2023/jacs/cdk2/cdk2_edge.json",
+        "protein": "ross_2023/jacs/cdk2/protein.pdb",
+        "atoms": {
+            "complex": 67005,
+            "solvent": 1726
+        },
+        "waters": {
+            "complex": 10104,
+            "solvent": 561
+        }
+    },
+    "ptp1b": {
+        "edge": "ross_2023/jacs/ptp1b/ptp1b_edge.json",
+        "protein": "ross_2023/jacs/ptp1b/protein.pdb",
+        "atoms": {
+            "complex": 35081,
+            "solvent": 1744
+        },
+        "waters": {
+            "complex": 10115,
+            "solvent": 571
+        }
+    },
+    "tyk2": {
+        "edge": "ross_2023/jacs/tyk2/tyk2_edge.json",
+        "protein": "ross_2023/jacs/tyk2/protein.pdb",
+        "atoms": {
+            "complex": 34079,
+            "solvent": 1750
+        },
+        "waters": {
+            "complex": 9830,
+            "solvent": 575
+        }
+    },
+    "mcl1": {
+        "edge": "ross_2023/jacs/mcl1/mcl1_edge.json",
+        "protein": "ross_2023/jacs/mcl1/protein.pdb",
+        "atoms": {
+            "complex": 14207,
+            "solvent": 1762
+        },
+        "waters": {
+            "complex": 3930,
+            "solvent": 577
+        }
+    },
+    "thrombin": {
+        "edge": "ross_2023/jacs/thrombin/thrombin_edge.json",
+        "protein": "ross_2023/jacs/thrombin/protein.pdb",
+        "atoms": {
+            "complex": 26512,
+            "solvent": 1752
+        },
+        "waters": {
+            "complex": 7254,
+            "solvent": 570
+        }
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "bace1": {
+        "edge": "ross_2023/scaffold_hopping_set/bace1/bace1_edge.json",
+        "protein": "ross_2023/scaffold_hopping_set/bace1/protein.pdb",
+        "cofactors": "ross_2023/scaffold_hopping_set/bace1/cofactors.sdf",
+        "atoms": {
+            "complex": 41472,
+            "solvent": 1766
+        },
+        "waters": {
+            "complex": 10091,
+            "solvent": 579
+        }
+    },
+    "factor_xa": {
+        "edge": "ross_2023/scaffold_hopping_set/factor_xa/factor_xa_edge.json",
+        "protein": "ross_2023/scaffold_hopping_set/factor_xa/protein.pdb",
+        "atoms": {
+            "complex": 34253,
+            "solvent": 2383
+        },
+        "waters": {
+            "complex": 9957,
+            "solvent": 775
+        }
+    }
+}

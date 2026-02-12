@@ -1,0 +1,147 @@
+{
+    "jnk1": {
+        "edge": "ross_2023/charge_annihilation_set/jnk1/jnk1_edge.json",
+        "protein": "ross_2023/charge_annihilation_set/jnk1/protein.pdb",
+        "atoms": {
+            "complex": 42808,
+            "solvent": 1778
+        },
+        "waters": {
+            "complex": 10067,
+            "solvent": 586
+        }
+    },
+    "dlk": {
+        "edge": "ross_2023/charge_annihilation_set/dlk/dlk_edge.json",
+        "protein": "ross_2023/charge_annihilation_set/dlk/protein.pdb",
+        "atoms": {
+            "complex": 37425,
+            "solvent": 1824
+        },
+        "waters": {
+            "complex": 10061,
+            "solvent": 594
+        }
+    },
+    "irak4_s3": {
+        "edge": "ross_2023/charge_annihilation_set/irak4_s3/irak4_s3_edge.json",
+        "protein": "ross_2023/charge_annihilation_set/irak4_s3/protein.pdb",
+        "atoms": {
+            "complex": 31904,
+            "solvent": 1808
+        },
+        "waters": {
+            "complex": 9109,
+            "solvent": 587
+        }
+    },
+    "irak4_s2": {
+        "edge": "ross_2023/charge_annihilation_set/irak4_s2/irak4_s2_edge.json",
+        "protein": "ross_2023/charge_annihilation_set/irak4_s2/protein.pdb",
+        "atoms": {
+            "complex": 31129,
+            "solvent": 2260
+        },
+        "waters": {
+            "complex": 8844,
+            "solvent": 736
+        }
+    },
+    "itk": {
+        "edge": "ross_2023/charge_annihilation_set/itk/itk_edge.json",
+        "protein": "ross_2023/charge_annihilation_set/itk/protein.pdb",
+        "atoms": {
+            "complex": 29359,
+            "solvent": 2351
+        },
+        "waters": {
+            "complex": 8432,
+            "solvent": 766
+        }
+    },
+    "ephx2": {
+        "edge": "ross_2023/charge_annihilation_set/ephx2/ephx2_edge.json",
+        "protein": "ross_2023/charge_annihilation_set/ephx2/protein.pdb",
+        "atoms": {
+            "complex": 23285,
+            "solvent": 1804
+        },
+        "waters": {
+            "complex": 6107,
+            "solvent": 589
+        }
+    },
+    "cdk2": {
+        "edge": "ross_2023/charge_annihilation_set/cdk2/cdk2_edge.json",
+        "protein": "ross_2023/charge_annihilation_set/cdk2/protein.pdb",
+        "atoms": {
+            "complex": 69834,
+            "solvent": 1727
+        },
+        "waters": {
+            "complex": 10163,
+            "solvent": 562
+        }
+    },
+    "ptp1b": {
+        "edge": "ross_2023/charge_annihilation_set/ptp1b/ptp1b_edge.json",
+        "protein": "ross_2023/charge_annihilation_set/ptp1b/protein.pdb",
+        "atoms": {
+            "complex": 32284,
+            "solvent": 2110
+        },
+        "waters": {
+            "complex": 9179,
+            "solvent": 691
+        }
+    },
+    "egfr": {
+        "edge": "ross_2023/charge_annihilation_set/egfr/egfr_edge.json",
+        "protein": "ross_2023/charge_annihilation_set/egfr/protein.pdb",
+        "atoms": {
+            "complex": 39930,
+            "solvent": 3630
+        },
+        "waters": {
+            "complex": 10071,
+            "solvent": 1188
+        }
+    },
+    "jak1": {
+        "edge": "ross_2023/charge_annihilation_set/jak1/jak1_edge.json",
+        "protein": "ross_2023/charge_annihilation_set/jak1/protein.pdb",
+        "atoms": {
+            "complex": 37905,
+            "solvent": 1781
+        },
+        "waters": {
+            "complex": 10223,
+            "solvent": 585
+        }
+    },
+    "tyk2": {
+        "edge": "ross_2023/charge_annihilation_set/tyk2/tyk2_edge.json",
+        "protein": "ross_2023/charge_annihilation_set/tyk2/protein.pdb",
+        "atoms": {
+            "complex": 34085,
+            "solvent": 1747
+        },
+        "waters": {
+            "complex": 9830,
+            "solvent": 572
+        }
+    },
+    "thrombin": {
+        "edge": "ross_2023/charge_annihilation_set/thrombin/thrombin_edge.json",
+        "protein": "ross_2023/charge_annihilation_set/thrombin/protein.pdb",
+        "cofactors": "ross_2023/charge_annihilation_set/thrombin/cofactors.sdf",
+        "atoms": {
+            "complex": 27086,
+            "solvent": 1759
+        },
+        "waters": {
+            "complex": 7468,
+            "solvent": 572
+        }
+    }
+}
