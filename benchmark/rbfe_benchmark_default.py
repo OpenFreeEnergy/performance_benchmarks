@@ -40,14 +40,89 @@ def get_performance(dagres, protocol):
       The Protocol we ran.
     """
     protocol_results = protocol.gather([dagres])
-    # hack to get the file path
-    nc = [purs[0].outputs["nc"] for purs in protocol_results.data.values()][0]
-    filepath = nc.resolve().parent
-    log = filepath / "simulation_real_time_analysis.yaml"
-    with open(log) as stream:
-        data = yaml.safe_load(stream)
 
-    return data[-1]["timing_data"]["ns_per_day"]
+    def iter_path_like_values(value):
+        if isinstance(value, (str, pathlib.Path)):
+            yield pathlib.Path(value)
+            return
+        if hasattr(value, "resolve"):
+            try:
+                yield pathlib.Path(value)
+            except TypeError:
+                pass
+            return
+        if isinstance(value, dict):
+            for nested_value in value.values():
+                yield from iter_path_like_values(nested_value)
+            return
+        if isinstance(value, (list, tuple, set)):
+            for nested_value in value:
+                yield from iter_path_like_values(nested_value)
+
+    def extract_ns_per_day(log):
+        if not log.exists():
+            return None
+        with open(log) as stream:
+            data = yaml.safe_load(stream)
+        if not isinstance(data, list) or not data:
+            return None
+        timing_data = data[-1].get("timing_data")
+        if not isinstance(timing_data, dict):
+            return None
+        ns_per_day = timing_data.get("ns_per_day")
+        if ns_per_day is None:
+            return None
+        return ns_per_day
+
+    nc = None
+    observed_output_keys = set()
+    path_candidates = []
+    for protocol_unit_results in protocol_results.data.values():
+        for unit_result in protocol_unit_results:
+            outputs = getattr(unit_result, "outputs", {})
+            if not isinstance(outputs, dict):
+                continue
+            observed_output_keys.update(str(key) for key in outputs.keys())
+            for output_value in outputs.values():
+                path_candidates.extend(iter_path_like_values(output_value))
+            candidate = outputs.get("nc")
+            if candidate is not None:
+                nc = candidate
+                break
+        if nc is not None:
+            break
+
+    if nc is not None:
+        filepath = (
+            nc.resolve().parent
+            if hasattr(nc, "resolve")
+            else pathlib.Path(nc).parent
+        )
+        ns_per_day = extract_ns_per_day(filepath / "simulation_real_time_analysis.yaml")
+        if ns_per_day is not None:
+            return ns_per_day
+
+    log_filenames = (
+        "simulation_real_time_analysis.yaml",
+        "real_time_analysis.yaml",
+    )
+    for path_candidate in path_candidates:
+        candidate_dirs = []
+        if path_candidate.is_dir():
+            candidate_dirs.append(path_candidate)
+        candidate_dirs.append(path_candidate.parent)
+        candidate_dirs.append(path_candidate.parent.parent)
+        for candidate_dir in candidate_dirs:
+            for log_filename in log_filenames:
+                ns_per_day = extract_ns_per_day(candidate_dir / log_filename)
+                if ns_per_day is not None:
+                    return ns_per_day
+
+    observed = ", ".join(sorted(observed_output_keys)) or "<none>"
+    raise KeyError(
+        "Unable to resolve benchmark performance from gathered protocol unit "
+        f"outputs. Observed output keys: {observed}."
+    )
 
 
 def run_md(dag, protocol):
