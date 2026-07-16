@@ -41,8 +41,10 @@ def get_performance(dagres, protocol):
     """
     protocol_results = protocol.gather([dagres])
     # hack to get the file path
-    nc = [purs[0].outputs["nc"] for purs in protocol_results.data.values()][0]
-    filepath = nc.resolve().parent
+    trajectory = [
+        purs[0].outputs["trajectory"] for purs in protocol_results.data.values()
+    ][0]
+    filepath = trajectory.resolve().parent
     log = filepath / "simulation_real_time_analysis.yaml"
     with open(log) as stream:
         data = yaml.safe_load(stream)
